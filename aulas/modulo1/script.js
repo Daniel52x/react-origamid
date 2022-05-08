@@ -1,58 +1,29 @@
-const menu = {
-  seletor: '.principal',
-};
+// import quadrado from './quadrado.js';
+// import numeroAleatorio from './numeroAleatorio.js';
 
-console.log(menu.seletor.toUpperCase());
+// console.log(quadrado.perimetroQuadrado(5));
+// console.log(numeroAleatorio());
 
-const upperName = (name) => name.toUpperCase();
+// fetch('https://ranekapi.origamid.dev/wp-json/api/produto')1;
 
-const lowerName = (name) => {
-  return name.toLowerCase();
-};
+// async function fetchProdutos(url) {
+//   const response = await fetch(url);
+//   const json = await response.json();
+//   return response;
+// }
 
-console.log(upperName('andre'));
-console.log(lowerName('andre'));
-
-function handleMouse({ clientX, clientY }) {
-  console.log(clientX, clientY);
-}
-
-document.addEventListener('click', handleMouse);
-
-const frutas = ['banana', 'uva'];
-const [fruta1, fruta2] = frutas;
-console.log(fruta1, fruta2);
-
-const useQuadrado = [
-  4,
-  function (lado) {
-    return 4 * lado;
-  },
+const precos = [
+  'Crédito',
+  'R$ 200',
+  'R$ 400',
+  'Contas Pagar',
+  'R$ 300',
+  'R$ 400',
+  'Meus dados',
 ];
 
-const [lados, perimetro] = useQuadrado;
-console.log(lados, perimetro(lados));
+const precosFiltro = precos.filter((p) => p.includes('R$'));
+console.log(precosFiltro);
 
-function showList(empresa, ...clientes) {
-  clientes.forEach((cliente) => {
-    console.log(cliente, empresa);
-  });
-}
-
-showList('Google', 'Andre', 'Rafael', 'Julio');
-
-const numeros = [10, 5, 20];
-const maior = Math.max(...numeros);
-console.log(maior);
-
-const numeros2 = [...numeros, 24, 32, 32];
-console.log(numeros2);
-
-const carro = {
-  cor: 'azul',
-  portas: 4,
-};
-
-carroAno = { ...carro, ano: 2008 };
-
-console.log(carro, carroAno);
+const precosNumeros = precosFiltro.map((preco) => Number(preco.replace('R$ ', '')));
+console.log(precosNumeros);
