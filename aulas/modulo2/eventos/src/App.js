@@ -1,22 +1,25 @@
 import React from 'react';
+import Footer from './Footer';
+import Form from './Form/Form';
+import Header from './Header';
+
+const Teste = () => {
+  const active = false;
+  if (active) {
+    return <p>Teste</p>;
+  } else {
+    return null;
+  }
+};
 
 const App = () => {
-  function handleClick(event) {
-    console.log(event.target);
-  }
-
-  function handleScrool(event) {
-    console.log(event);
-  }
-
-  window.addEventListener('scroll', handleScrool);
-
   return (
-    <div style={{height: '200vh'}}>
-      <button onClick={(event) => alert(event.target.innerText)}>
-        Compre Vioção
-      </button>
-    </div>
+    <>
+      <Teste />
+      <Header />
+      <Form />
+      <Footer />
+    </>
   );
 };
 
