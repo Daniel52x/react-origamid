@@ -1,18 +1,23 @@
 import React from 'react';
 
-const Produto = () => {
+const Produto = ({ produto }) => {
+  const [dados, setDados] = React.useState(null);
+
   React.useEffect(() => {
-    function handleScroll(event) {
-      console.log(event);
-    }
+    if (produto !== null)
+      fetch(`https://ranekapi.origamid.dev/json/api/produto/${produto}`)
+        .then((response) => response.json())
+        .then((json) => setDados(json));
+  }, [produto]);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  if (dados === null) return null;
 
-  return <div style={{ height: '200vh' }}>Meu Produto</div>;
+  return (
+    <div>
+      <h1>{dados.nome}</h1>
+      <p>{dados.preco}</p>
+    </div>
+  );
 };
 
 export default Produto;
