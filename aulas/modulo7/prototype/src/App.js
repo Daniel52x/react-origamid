@@ -1,10 +1,17 @@
 import React from 'react';
-import Button from './Button';
+const Contato = React.lazy(() => import('./Contato'));
 
 const App = () => {
+  const [ativo, setAtivo] = React.useState(false);
+
   return (
     <div>
-      <Button width={300}>Clique Aqui</Button>
+      {ativo && (
+        <React.Suspense fallback={<div>Carregando...</div>}>
+          <Contato />
+        </React.Suspense>
+      )}
+      <button onClick={() => setAtivo(true)}>Ativar</button>
     </div>
   );
 };
